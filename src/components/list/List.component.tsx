@@ -10,7 +10,6 @@ import { ListContainer, TitlesContainer, Title } from './List.styles';
 
 const List = () => {
   const { isLoading, posts, error } = useContext(PostsContext);
-  console.log('posts context:: ', { isLoading, posts, error });
 
   if(error) {
     return(
