@@ -17,6 +17,7 @@ export const PostsContext = createContext<PostsState>({
   isLoading: false,
   error: undefined,
   posts: [],
+  removePost: (id: number) => null,
 });
 
 const postsReducer: Reducer<PostsState, PostsActions> = (state: PostsState, action: PostsActions) => {
@@ -47,6 +48,7 @@ const INITIAL_STATE = {
   isLoading: false,
   error: undefined,
   posts: [],
+  removePost: () => null,
 };
 
 export const PostsProvider = ({ children }: { children: JSX.Element }) => {

@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 
 import { PostsContext } from '../../context/posts/posts.context';
-import Spinner from '../spinner/Spinner.component';
-import ErrorAlert from '../alert/Alert.component';
-import { ListContainer } from './List.styles';
+import {
+  Spinner,
+  ErrorAlert,
+  Item,
+} from '..';
+import { ListContainer, TitlesContainer, Title } from './List.styles';
 
 const List = () => {
   const { isLoading, posts, error } = useContext(PostsContext);
@@ -21,7 +24,25 @@ const List = () => {
         isLoading ? (
           <Spinner />
         ) : (
-          <div>List</div>
+          posts.length > 0 ? (
+            <div>
+              <TitlesContainer>
+                <Title>Title</Title>
+                <Title>Content</Title>
+                <Title>Actions</Title>
+              </TitlesContainer>
+              {posts.map(({ title, body, id }) => (
+                <Item
+                  key={id}
+                  postId={id}
+                  title={title}
+                  body={body}
+                />
+              ))}
+            </div>
+          ) : (
+            <div>No results</div>
+          )
         )
       }
     </ListContainer>

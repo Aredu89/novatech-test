@@ -15,6 +15,7 @@ export interface PostsState {
   isLoading: boolean;
   error: string | undefined;
   posts: Array<Posts>,
+  removePost: (id: number) => void;
 }
 
 export interface PostsActions {
